@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="zh">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>四季树生成器 · L-system</title>
+    <link rel="stylesheet" href="./style.css" />
+    <!-- p5.js 与 Teachable Machine 库 -->
+    <script src="https://cdn.jsdelivr.net/npm/p5@1.11.1/lib/p5.min.js" defer></script>
+    <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+    <script src="./sketch.js" defer></script>
+  </head>
+  <body>
+    <main class="app">
+      <section class="hud">
+        <h1>四季树生成器</h1>
+        <p class="season-hint">按键 1~4 切换春/夏/秋/冬</p>
+        <ul>
+          <li>点击叶子使其飘落，连续点击 5 次触发全树凋落</li>
+          <li>窗口大小变化会自动重新生成 L-system 树</li>
+          <li>参数来自《季节说明.md》与《配置说明.md》</li>
+        </ul>
+        <p class="tip">拖动或改写 <code>sketch.js</code> 体验更多形态。</p>
+      </section>
+      <section class="hud recognition">
+        <h2>手势识别控制树生长</h2>
+        <p id="tm-status">模型初始化中...</p>
+        <div class="progress-bar">
+          <div class="progress-fill" id="tm-progress"></div>
+        </div>
+        <p class="tip">识别“pour tea”动作时，进度条上升并推动树木继续生长。</p>
+        <div id="tm-video" class="tm-video"></div>
+      </section>
+      <footer>
+        <span>Made with p5.js · L-system</span>
+      </footer>
+    </main>
+  </body>
+</html>
+

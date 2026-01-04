@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>模型加载测试</title>
+</head>
+<body>
+  <h1>模型加载测试</h1>
+  <div id="status">正在测试...</div>
+  <script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@0.8/dist/teachablemachine-image.min.js"></script>
+  <script>
+    const statusDiv = document.getElementById("status");
+    
+    async function testModel() {
+      try {
+        statusDiv.innerHTML = "正在加载模型...";
+        const model = await tmImage.load("model/model.json", "model/metadata.json");
+        statusDiv.innerHTML = "✅ 模型加载成功！";
+        console.log("模型加载成功:", model);
+      } catch (error) {
+        statusDiv.innerHTML = "❌ 模型加载失败: " + error.message;
+        console.error("模型加载失败:", error);
+      }
+    }
+    
+    testModel();
+  </script>
+</body>
+</html> 
